@@ -114,21 +114,24 @@ function addPressKey() {
                 click('c');
                 doTime(201);
             } else if (key == keycodes.a) {
-				var trimite_a = 100;
+				click('a');
+				/*var trimite_a = 10;
 				while(trimite_a != 0)
 				{
 					click('a');
 					doTime(401);
 					trimite_a = trimite_a - 1;
 				}
+				*/
             } else if (key == keycodes.b) {
-                var trimite_b = 100;
+				click('b');
+                /*var trimite_b = 10;
 				while(trimite_b != 0)
 				{
 					click('b');
 					doTime(401);
 					trimite_b = trimite_b - 1;
-				}
+				}*/
             }
         }
     }
@@ -137,7 +140,7 @@ function addPressKey() {
 function click(letter) {
 
 	for (h = 1; h < $(faTable).find("tr").length; h++) {
-		doTime(401);
+		sleepFor(401);
 		var row = $(faTable).find("tr").eq(h);
 		var button = $('a[class*="farm_icon_' + letter + '"]', row).eq(0);
 		if ($(button).html() != null) {
@@ -608,4 +611,12 @@ function uglyHider(linker) {
         $('#plunder_list_filters').toggle();
     }
 }
+
+function sleepFor(sleepDuration){
+    var now = new Date().getTime();
+    while(new Date().getTime() < now + sleepDuration){ 
+        /* Do nothing */ 
+    }
+}
+
 run();
