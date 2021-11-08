@@ -1,4 +1,4 @@
-var version = "2.1";
+var version = "2.0";
 var updateversion = 1.6;
 var keycodes = {
     "a": 65,
@@ -114,16 +114,21 @@ function addPressKey() {
                 click('c');
                 doTime(201);
             } else if (key == keycodes.a) {
-				var x = 10;
+				var x = 100;
 				while(x != 0)
 				{
 					click('a');
-					doTime(201);
+					doTime(401);
 					x = x - 1;
 				}
             } else if (key == keycodes.b) {
-                click('b');
-                doTime(201);
+                var x = 100;
+				while(x != 0)
+				{
+					click('b');
+					doTime(401);
+					x = x - 1;
+				}
             }
         }
     }
