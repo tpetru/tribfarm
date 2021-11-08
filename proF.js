@@ -139,7 +139,8 @@ function click(letter) {
                 if ($(button).attr('class').indexOf('farm_icon_disabled') == -1) {
                     $(button).click();
                     x = x - 1;
-                    return;
+					doTime(201);
+                    //return;
                 }
             }
         }
