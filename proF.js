@@ -64,7 +64,7 @@ function run() {
         } else {
             userkeys = $.cookie(cookieName).split("[")[1].split("]")[0].split(",");
             userset = $.cookie(cookieName).split("[")[2].split("]")[0].split(",");
-            keycodes.a = true;//parseInt(userkeys[0]);
+            keycodes.a = parseInt(userkeys[0]);
             keycodes.b = parseInt(userkeys[1]);
             keycodes.c = parseInt(userkeys[2]);
             keycodes.skip = parseInt(userkeys[3]);
