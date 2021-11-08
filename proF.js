@@ -1,4 +1,4 @@
-var version = "2.0";
+var version = "2.1";
 var updateversion = 1.6;
 var keycodes = {
     "a": 65,
