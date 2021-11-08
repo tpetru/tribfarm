@@ -114,20 +114,20 @@ function addPressKey() {
                 click('c');
                 doTime(201);
             } else if (key == keycodes.a) {
-				var x = 100;
-				while(x != 0)
+				var trimite_a = 100;
+				while(trimite_a != 0)
 				{
 					click('a');
 					doTime(401);
-					x = x - 1;
+					trimite_a = trimite_a - 1;
 				}
             } else if (key == keycodes.b) {
-                var x = 100;
-				while(x != 0)
+                var trimite_b = 100;
+				while(trimite_b != 0)
 				{
 					click('b');
 					doTime(401);
-					x = x - 1;
+					trimite_b = trimite_b - 1;
 				}
             }
         }
@@ -135,20 +135,18 @@ function addPressKey() {
 }
 
 function click(letter) {
-    var x = 10;
-    while (x != 0) {
-        for (h = 1; h < $(faTable).find("tr").length; h++) {
-            var row = $(faTable).find("tr").eq(h);
-            var button = $('a[class*="farm_icon_' + letter + '"]', row).eq(0);
-            if ($(button).html() != null) {
-                if ($(button).attr('class').indexOf('farm_icon_disabled') == -1) {
-                    $(button).click();
-                    x = x - 1;
-					return;
-                }
-            }
-        }
-    }
+
+	for (h = 1; h < $(faTable).find("tr").length; h++) {
+		var row = $(faTable).find("tr").eq(h);
+		var button = $('a[class*="farm_icon_' + letter + '"]', row).eq(0);
+		if ($(button).html() != null) {
+			if ($(button).attr('class').indexOf('farm_icon_disabled') == -1) {
+				$(button).click();
+				x = x - 1;
+				return;
+			}
+		}
+	}
 }
 
 function checkCookie() {
