@@ -137,6 +137,7 @@ function addPressKey() {
 function click(letter) {
 
 	for (h = 1; h < $(faTable).find("tr").length; h++) {
+		doTime(401);
 		var row = $(faTable).find("tr").eq(h);
 		var button = $('a[class*="farm_icon_' + letter + '"]', row).eq(0);
 		if ($(button).html() != null) {
