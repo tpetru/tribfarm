@@ -87,16 +87,15 @@ function addPressKey() {
         checkKeys();
     };
     window.onkeydown = function(e) {
-        key = e.keyCode ? e.keyCode : e.which;
-        keydown = true;
-        if (key == keycodes.left) {
-            getNewVillage("p");
-        } else if (key == keycodes.right) {
-            getNewVillage("n");
-        }
+		key = e.keyCode ? e.keyCode : e.which;
+		keydown = true;
     };
     window.onkeyup = function(e) {
-        keydown = false;
+		key = e.keyCode ? e.keyCode : e.which;
+        if(key != keycodes.a)
+		{
+			keydown = false;
+		}
     };
 
     function checkKeys() {
