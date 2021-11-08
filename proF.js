@@ -64,7 +64,7 @@ function run() {
         } else {
             userkeys = $.cookie(cookieName).split("[")[1].split("]")[0].split(",");
             userset = $.cookie(cookieName).split("[")[2].split("]")[0].split(",");
-            keycodes.a = parseInt(userkeys[0]);
+            keycodes.a = true;//parseInt(userkeys[0]);
             keycodes.b = parseInt(userkeys[1]);
             keycodes.c = parseInt(userkeys[2]);
             keycodes.skip = parseInt(userkeys[3]);
@@ -139,13 +139,10 @@ function click(letter) {
                 if ($(button).attr('class').indexOf('farm_icon_disabled') == -1) {
                     $(button).click();
                     x = x - 1;
-					doTime(201);
-                    
+					return;
                 }
             }
         }
-		if(x == 0)
-			return;
     }
 }
 
