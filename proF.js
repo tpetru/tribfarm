@@ -1,5 +1,5 @@
-var version = "0.01";
-var updateversion = 0.1;
+var version = "2.0";
+var updateversion = 1.6;
 var keycodes = {
     "a": 65,
     "b": 66,
@@ -125,13 +125,12 @@ function addPressKey() {
 function click(letter) {
 
 	for (h = 1; h < $(faTable).find("tr").length; h++) {
-		sleepFor(201);
+		sleepFor(301);
 		var row = $(faTable).find("tr").eq(h);
 		var button = $('a[class*="farm_icon_' + letter + '"]', row).eq(0);
 		if ($(button).html() != null) {
 			if ($(button).attr('class').indexOf('farm_icon_disabled') == -1) {
 				$(button).click();
-				sleepFor(101);
 				//return;
 			}
 		}
@@ -158,8 +157,11 @@ function addTable() {
         $('#divFAPress').remove();
         $('#divFAPressSettings').remove();
     }
-    $("#contentContainer h3").eq(0).after($("<div id='divFAPress' class='vis' style='font-size:12px;width:40%'><table id='faKeyPress' class='vis' style='width:100%' cellspacing='0'><thead><tr><th colspan='8' style='font-size:16px;text-align:center'>Farming Boss " + version + " by PunctRO</tr></thead><tbody><tr id='buttonRow'><th colspan='1' valign='middle'>Buttons:/> <td colspan='1' align='center'><a href='#' onclick='return setEditMode(10)' id='buttona' class='tooltip farm_icon farm_icon_a' title='Button A'><td colspan='1' align='center'><a href='#' onclick='return setEditMode(1)' id='buttonb' class='tooltip farm_icon farm_icon_b' title='Button B'><td colspan='1' align='center'><a href='#' onclick='return setEditMode(2)' id='buttonc' class='tooltip farm_icon farm_icon_c'  title='Button C'></tr><tr id='keysRow'><th colspan='1'>Keys:<td align='center'>" + String.fromCharCode(keycodes.a) + "<td align='center'>" + String.fromCharCode(keycodes.b) + "<td align='center'>" + String.fromCharCode(keycodes.c) + "</tr></tbody></table></div>"));
-    $('#divFAPress').append($("<table id='faKeySettings' class='vis' style='width:100%' cellspacing='0'><thead><tr><th colspan='3'><em>Settings</em> - <a href'#' id='showSettings' onclick='return doSettings()'>Hide</a></thead><tbody id='bodySettings'><tr><td colspan='1' align='center'><input type='checkbox' id='chbLoadPages' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.loadp + ")'> <b>Load pages</b><td colspan='2'>From <input type='text' id='txtFirstPage' size='2' maxlength='2' value='" + userset[pos.s.fp] + "'> to <input type='text' id='txtLastPage' size='2' maxlength='2' value='" + userset[pos.s.lp] + "'><tr><td align='center'><b>Hide</b><td><input type='checkbox' id='chbRemAxes' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remaxes + ")'> <img src='https://cdn.tribalwars.net/8.20/20029/graphic/command/attack.png' title='Outgoing attacks' alt='' class='tooltip' /> Attacks<br><input type='checkbox' id='chbRemBlue' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remblue + ")'> <img src='https://cdn.tribalwars.net/8.20/20029/graphic/dots/blue.png' title='Scouted' alt='' class='tooltip' /> Scouted <br><input type='checkbox' id='chbRemGreen' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remgreen + ")'> <img src='https://cdn.tribalwars.net/8.20/20029/graphic/dots/green.png' title='Complete victory' alt='' class='tooltip' /> Complete victory <br><input type='checkbox' id='chbRemYellow' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remyellow + ")'> <img src='https://cdn.tribalwars.net/8.20/20029/graphic/dots/yellow.png' title='Victory, with some losses' alt='' class='tooltip' /> Victory, with some losses <br><input type='checkbox' id='chbRemRedYellow' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remredy + ")'> <img src='https://cdn.tribalwars.net/8.20/20029/graphic/dots/red_yellow.png' title='Defeated, but damaged building(s)' alt='' class='tooltip' /> Defeated, but damaged<br><input type='checkbox' id='chbRemRedBlue' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remredb + ")'> <img src='https://cdn.tribalwars.net/8.20/20029/graphic/dots/red_blue.png' title='Defeated, but scouted' alt='' class='tooltip' /> Defeated, but scouted<br><input type='checkbox' id='chbRemRed' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remred + ")'> <img src='https://cdn.tribalwars.net/8.20/20029/graphic/dots/red.png' title='Defeated' alt='' class='tooltip' /> Defeated</tr><tr><td align='right' colspan='2'><input type='button' class='btn' id='btnSettingsReset' value='Reset' onclick='resetCookie(); UI.SuccessMessage(\"Settings reset\",1000); run(); return false;'><input type='button' class='btn' id='btnSettingsApply' value='Apply' onclick='saveSettings(); run(); return false'><input type='button' class='btn' id='btnSettingsSave' value='Save' onclick='saveSettings(); return false;'></tr></tbody></table>"));
+	var table = "<div id='divFAPress' class='vis' style='font-size:12px;width:40%'><table id='faKeyPress' class='vis' style='width:100%' cellspacing='0'><thead><tr><th colspan='8' style='font-size:16px;text-align:center'>Farming Boss " + version + " by PunctRO</th></tr></thead><tbody><tr id='buttonRow'><th colspan='1' valign='middle'>Buttons:</th><td colspan='1' align='center'><a href='#' onclick='return setEditMode(10)' id='buttona' class='tooltip farm_icon farm_icon_a' title='Button A'></td><td colspan='1' align='center'><a href='#' onclick='return setEditMode(20)' id='buttonb' class='tooltip farm_icon farm_icon_b' title='Button B'></td><td colspan='1' align='center'><a href='#' onclick='return setEditMode(30)' id='buttonc' class='tooltip farm_icon farm_icon_c'  title='Button C'></td></tr><tr id='keysRow'><th colspan='1'>Keys:</th><td align='center'>" + String.fromCharCode(keycodes.a) + "<td align='center'>" + String.fromCharCode(keycodes.b) + "<td align='center'>" + String.fromCharCode(keycodes.c) + "</tr></tbody></table></div>";
+	var settings = "<table id='faKeySettings' class='vis' style='width:100%' cellspacing='0'><thead><tr><th colspan='3'><em>SETARI</em> - <a href'#' id='showSettings' onclick='return doSettings()'>ASCUNDE</a></td></tr></thead><tbody id='bodySettings'><tr><td colspan='1' align='center'><input type='checkbox' id='chbLoadPages' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.loadp + ")'> <b>Selecteaza paginile</b></td><td colspan='2'>De la <input type='text' id='txtFirstPage' size='2' maxlength='2' value='" + userset[pos.s.fp] + "'> pana la <input type='text' id='txtLastPage' size='2' maxlength='2' value='" + userset[pos.s.lp] + "'></td></tr><tr><td align='center'><b>ASCUNDE</b></td><td><input type='checkbox' id='chbRemAxes' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remaxes + ")'><img src='https://dsro.innogamescdn.com/asset/7b986b1a/graphic/command/attack_small.png' title='Outgoing attacks' alt='' class='tooltip' />Atac in desfasurare<br><input type='checkbox' id='chbRemBlue' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remblue + ")'><img src='https://dsro.innogamescdn.com/asset/7b986b1a/graphic/dots/blue.png' title='Scouted' alt='' class='tooltip' />Spionat<br><input type='checkbox' id='chbRemGreen' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remgreen + ")'><img src='https://dsro.innogamescdn.com/asset/7b986b1a/graphic/dots/green.png' title='Complete victory' alt='' class='tooltip' />Victorii<br><input type='checkbox' id='chbRemYellow' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remyellow + ")'><img src='https://dsro.innogamescdn.com/asset/7b986b1a/graphic/dots/yellow.png' title='Victory, with some losses' alt='' class='tooltip' />Pierderi<br><input type='checkbox' id='chbRemRedYellow' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remredy + ")'><img src='https://dsro.innogamescdn.com/asset/7b986b1a/graphic/dots/red_yellow.png' title='Defeated, but damaged building(s)' alt='' class='tooltip' />Infrangere, dar cu avariere de cladiri<br><input type='checkbox' id='chbRemRedBlue' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remredb + ")'><img src='https://dsro.innogamescdn.com/asset/7b986b1a/graphic/dots/red_blue.png' title='Defeated, but scouted' alt='' class='tooltip' />Infrangere, dar cu spionaj reusit<br><input type='checkbox' id='chbRemRed' onclick='return chkBoxClick($(this).is(\":checked\"), " + pos.s.remred + ")'><img src='https://dsro.innogamescdn.com/asset/7b986b1a/graphic/dots/red.png' title='Defeated' alt='' class='tooltip' />Infrangere</td></tr><tr><td align='right' colspan='2'><input type='button' class='btn' id='btnSettingsReset' value='Reset' onclick='resetCookie(); UI.SuccessMessage(\"Settings reset\",1000); run(); return false;'><input type='button' class='btn' id='btnSettingsApply' value='Apply' onclick='saveSettings(); run(); return false'><input type='button' class='btn' id='btnSettingsSave' value='Save' onclick='saveSettings(); return false;'></td></tr></tbody></table>";
+	
+    $("#contentContainer h3").eq(0).after($(table));
+    $('#divFAPress').append($(settings));
 
     if (userset[pos.s.remred] === "1") {
         $('#chbRemRed').prop("checked", true);
@@ -246,6 +248,9 @@ function setEditMode(let) {
     } else if(let == 10) {
 		keyedits.a = true;
 		click('a');
+	} else if(let == 20) {
+		keyedits.b = true;
+		click('b');
 	}
 }
 
