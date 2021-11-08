@@ -142,8 +142,8 @@ function click(letter) {
 		if ($(button).html() != null) {
 			if ($(button).attr('class').indexOf('farm_icon_disabled') == -1) {
 				$(button).click();
-				x = x - 1;
-				return;
+				doTime(401);
+				//return;
 			}
 		}
 	}
