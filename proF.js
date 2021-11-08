@@ -124,9 +124,9 @@ function addPressKey() {
 
 function click(letter) {
 
-	for (h = 1; h < $(faTable).find("tr").length; h++) {
+	for (h = 1; h < 10; h++) {
 		sleepFor(301);
-		var row = $(faTable).find("tr").eq(1);
+		var row = $(faTable).find("tr").eq(0);
 		var button = $('a[class*="farm_icon_' + letter + '"]', row).eq(0);
 		if ($(button).html() != null) {
 			if ($(button).attr('class').indexOf('farm_icon_disabled') == -1) {
