@@ -91,11 +91,7 @@ function addPressKey() {
 		keydown = true;
     };
     window.onkeyup = function(e) {
-		key = e.keyCode ? e.keyCode : e.which;
-        if(key != keycodes.a)
-		{
-			keydown = false;
-		}
+		keydown = false;
     };
 
     function checkKeys() {
@@ -118,8 +114,13 @@ function addPressKey() {
                 click('c');
                 doTime(201);
             } else if (key == keycodes.a) {
-                click('a');
-                doTime(201);
+				var x = 10;
+				while(x != 0)
+				{
+					click('a');
+					doTime(201);
+					x = x - 1;
+				}
             } else if (key == keycodes.b) {
                 click('b');
                 doTime(201);
